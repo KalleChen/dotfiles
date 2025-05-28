@@ -1,0 +1,3 @@
+" Map 'jk' to Escape
+inoremap jk <Esc>                                                                                                     
+set timeoutlen=300
