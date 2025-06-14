@@ -49,6 +49,13 @@ source <(fzf --zsh)
 
 
 # ================================
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# ================================
+
+# ================================
 # Plugin Manager (zinit)
 if [[ ! -f $HOME/.local/share/zinit/zinit.git/zinit.zsh ]]; then
     print -P "%F{33} %F{220}Installing %F{33}ZDHARMA-CONTINUUM%F{220} Initiative Plugin Manager (%F{33}zdharma-continuum/zinit%F{220})…%f"
@@ -74,7 +81,12 @@ zinit light-mode for \
 
 # ================================
 # plugins
-zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit ice depth=1
+zinit light romkatv/powerlevel10k
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+zinit ice depth=1
+zinit light jeffreytse/zsh-vi-mode
 # ================================
 
 
@@ -82,4 +94,9 @@ zinit ice depth=1; zinit light romkatv/powerlevel10k
 # p10k
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# ================================
+
+# ================================
+# vi-mode
+ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 # ================================
