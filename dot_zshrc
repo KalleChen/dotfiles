@@ -15,6 +15,8 @@ SAVEHIST=10000
 
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
+
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 # ================================
 
 
