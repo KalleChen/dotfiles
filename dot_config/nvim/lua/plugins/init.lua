@@ -9,14 +9,12 @@ return {
   { "hrsh7th/cmp-nvim-lsp" },
   { "hrsh7th/cmp-buffer" },
   { "hrsh7th/cmp-path" },
-  { "L3MON4D3/LuaSnip" },                              -- Snippet engine
-  { "saadparwaiz1/cmp_luasnip" },
 
   -- Syntax Highlighting
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
 
   -- File Explorer
-  { "nvim-tree/nvim-tree.lua" },
+  { "nvim-tree/nvim-tree.lua"},
 
   -- Git Integration
   { "lewis6991/gitsigns.nvim" },

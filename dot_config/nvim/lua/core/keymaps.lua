@@ -1,7 +1,20 @@
 local keymap = vim.keymap.set
 vim.g.mapleader = " "
 
+-- Basic mappings
 keymap("n", "<leader>w", ":w<CR>")
 keymap("n", "<leader>q", ":q<CR>")
-keymap("n", "<leader>e", ":Ex<CR>")
-keymap("i", "jk", "<ESC>", { noremap = true, silent = true })
+
+-- File explorer
+keymap("n", "<leader>e", ":NvimTreeToggle<CR>")
+keymap("n", "<leader>ef", ":NvimTreeFocus<CR>")
+
+-- Insert mode escape
+keymap("i", "jk", "<ESC>", { noremap = true })
+
+-- Window navigation
+keymap("n", "<C-h>", "<C-w>h", { silent = true })
+keymap("n", "<C-j>", "<C-w>j", { silent = true })
+keymap("n", "<C-k>", "<C-w>k", { silent = true })
+keymap("n", "<C-l>", "<C-w>l", { silent = true })
+

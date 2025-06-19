@@ -9,3 +9,5 @@ opt.smartindent = true
 opt.cursorline = true
 opt.termguicolors = true
 opt.clipboard = "unnamedplus"
+opt.timeout = true
+opt.timeoutlen = 500
