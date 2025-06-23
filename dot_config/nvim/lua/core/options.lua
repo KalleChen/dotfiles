@@ -10,4 +10,5 @@ opt.cursorline = true
 opt.termguicolors = true
 opt.clipboard = "unnamedplus"
 opt.timeout = true
-opt.timeoutlen = 500
+opt.timeoutlen = 100
+opt.guicursor = ""

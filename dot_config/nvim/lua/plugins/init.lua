@@ -21,4 +21,15 @@ return {
 
   -- Fuzzy Finder
   { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
+
+  -- Which Key
+  { "folke/which-key.nvim", event = "VeryLazy" },
+
+  -- Colorscheme
+  {
+    "EdenEast/nightfox.nvim",
+    config = function()
+      vim.cmd.colorscheme("carbonfox")
+    end
+  },
 }
