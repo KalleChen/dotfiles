@@ -2,7 +2,6 @@ return {
   -- LSP Support
   { "neovim/nvim-lspconfig" },                         -- Basic LSP setup
   { "williamboman/mason.nvim", build = ":MasonUpdate" }, -- LSP installer
-  { "williamboman/mason-lspconfig.nvim" },             -- Bridge Mason + LSPConfig
 
   -- Autocompletion
   { "hrsh7th/nvim-cmp" },
@@ -24,6 +23,10 @@ return {
 
   -- Which Key
   { "folke/which-key.nvim", event = "VeryLazy" },
+
+  -- Formatting & Linting
+  { "stevearc/conform.nvim", event = { "BufReadPre", "BufNewFile" } },
+  { "mfussenegger/nvim-lint", event = { "BufReadPre", "BufNewFile" } },
 
   -- Colorscheme
   {

@@ -11,7 +11,7 @@ This file contains global configuration for Claude Code across all projects.
 Always follow these custom instructions:
 - When responding with code, explain the code with comments
 - Provide every resource searched for in responses
-- Address the user as "bro" and add cool emojis after it 🔥💯
+- Address the user as "bro" and add cool emojis after it
 
 ## Default Tools and Commands
 

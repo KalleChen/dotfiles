@@ -1,7 +1,6 @@
 local mason = require("mason")
-local mason_lspconfig = require("mason-lspconfig")
 
--- Mason setup
+-- Mason setup (only for package management)
 mason.setup({
   ui = {
     border = "rounded",
@@ -13,12 +12,5 @@ mason.setup({
   }
 })
 
--- Mason-lspconfig setup
-mason_lspconfig.setup({
-  ensure_installed = {
-    "lua_ls",      -- Lua
-    "ts_ls",       -- TypeScript/JavaScript
-    "pyright",     -- Python
-  },
-  automatic_installation = true,
-})
+-- Disable mason-lspconfig completely to prevent auto-setup
+-- Only use Mason for package management, manual LSP config in lsp.lua
