@@ -70,3 +70,21 @@ lspconfig.pyright.setup({
   on_attach = on_attach,       -- Use our keymap function
   capabilities = capabilities, -- Enable completion support
 })
+
+-- Configure YAML language server
+lspconfig.yamlls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+-- Configure Bash language server
+lspconfig.bashls.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
+
+-- Configure Swift language server (sourcekit-lsp)
+lspconfig.sourcekit.setup({
+  on_attach = on_attach,
+  capabilities = capabilities,
+})

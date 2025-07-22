@@ -5,6 +5,9 @@ vim.g.mapleader = " "
 -- Insert mode escape
 keymap("i", "jk", "<ESC>", { noremap = true })
 
+-- Clear search highlight
+keymap("n", "<leader>h", ":nohlsearch<CR>", { silent = true, desc = "Clear search highlight" })
+
 -- Window navigation
 keymap("n", "<C-h>", "<C-w>h", { silent = true })
 keymap("n", "<C-j>", "<C-w>j", { silent = true })

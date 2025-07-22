@@ -11,12 +11,14 @@ return {
 
   -- Syntax Highlighting
   { "nvim-treesitter/nvim-treesitter", build = ":TSUpdate" },
+  { "nvim-treesitter/nvim-treesitter-context" },
 
   -- File Explorer
   { "nvim-tree/nvim-tree.lua"},
 
   -- Git Integration
   { "lewis6991/gitsigns.nvim" },
+  { "sindrets/diffview.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
 
   -- Fuzzy Finder
   { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } },
@@ -27,6 +29,16 @@ return {
   -- Formatting & Linting
   { "stevearc/conform.nvim", event = { "BufReadPre", "BufNewFile" } },
   { "mfussenegger/nvim-lint", event = { "BufReadPre", "BufNewFile" } },
+
+  -- GitHub Copilot
+  { "github/copilot.vim" },
+
+  -- Commenting
+  { "numToStr/Comment.nvim" },
+
+  -- Lazygit integration
+  { "kdheepak/lazygit.nvim" },
+
 
   -- Colorscheme
   {

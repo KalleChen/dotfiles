@@ -30,8 +30,8 @@ Review PR #$ARGUMENTS and analyze the changes:
 
 **Overall Assessment:** [Approve/Request Changes/Comment]
 
-### ✅ Strengths
-- [List positive aspects]
+### 🚀 Key Features Implemented
+- [List main features and functionality added]
 
 ### ⚠️ Issues Found
 - **Critical:** [Any blocking issues]
@@ -39,6 +39,10 @@ Review PR #$ARGUMENTS and analyze the changes:
 
 ### 🔧 Recommendations
 - [Specific actionable suggestions]
+- **Code that could be changed:**
+  - [Specific code sections/functions that need modification]
+  - [Explain how each section should be changed and why]
+  - [Include file paths and line numbers where applicable]
 
 ### 📝 Additional Notes
 - [Any other observations]
