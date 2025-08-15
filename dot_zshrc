@@ -74,6 +74,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 # ================================
 
+
 # ================================
 # autoenv
 source $(brew --prefix autoenv)/activate.sh
@@ -123,15 +124,6 @@ zinit light jeffreytse/zsh-vi-mode
 # ================================
 # vi-mode
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
-# Disable lazy keybindings to control visual mode
-ZVM_LAZY_KEYBINDINGS=false
-# Disable visual mode entirely
-function zvm_after_init() {
-  # Remove visual mode keybindings completely
-  zvm_bindkey vicmd 'v' vi-forward-char
-  zvm_bindkey vicmd 'V' vi-beginning-of-line
-  zvm_bindkey vicmd '^V' vi-forward-char
-}
 # ================================
 
 
