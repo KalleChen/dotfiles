@@ -1,0 +1,44 @@
+# Per-project, per-directory shell environments
+brew "autoenv"
+# Clone of cat(1) with syntax highlighting and Git integration
+brew "bat"
+# Manage your dotfiles across multiple diverse machines, securely
+brew "chezmoi"
+# Apjanke's fork of the classic cowsay project
+brew "cowsay"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# GitHub command-line tool
+brew "gh"
+# Lightweight and flexible command-line JSON processor
+brew "jq"
+# Lazier way to manage everything docker
+brew "lazydocker"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Package manager for the Lua programming language
+brew "luarocks"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
+# Python version management
+brew "pyenv"
+# Ruby version manager
+brew "rbenv"
+# Search tool like grep and The Silver Searcher
+brew "ripgrep"
+# Formatting tool for reformatting Swift code
+brew "swiftformat"
+# Terminal multiplexer
+brew "tmux"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
+# Internet file retriever
+brew "wget"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Menu bar manager
+cask "jordanbaird-ice"
+# Intercept, modify, replay, save HTTP/S traffic
+cask "mitmproxy"
+# Reverse proxy, secure introspectable tunnels to localhost
+cask "ngrok"
