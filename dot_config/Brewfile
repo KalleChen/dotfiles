@@ -34,11 +34,19 @@ brew "tmux"
 brew "uv"
 # Internet file retriever
 brew "wget"
+# Application uninstaller
+cask "appcleaner"
+# OpenAI's official browser with ChatGPT built in
+cask "chatgpt-atlas"
 # Terminal emulator that uses platform-native UI and GPU acceleration
 cask "ghostty"
-# Menu bar manager
-cask "jordanbaird-ice"
 # Intercept, modify, replay, save HTTP/S traffic
 cask "mitmproxy"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
+# Team communication and collaboration software
+cask "slack"
+# Music streaming service
+cask "spotify"
+# Messaging app with a focus on speed and security
+cask "telegram"
