@@ -25,3 +25,9 @@ Install brew apps
 ```bash
 brew bundle --file=~/.config/Brewfile
 ```
+
+Update chezmoi
+
+```bash
+dot update
+```
