@@ -34,3 +34,9 @@ Update chezmoi
 ```bash
 dot update
 ```
+
+dump homebrew
+
+```bash
+brew bundle dunmp --file=~/.config/Brewfile
+```
