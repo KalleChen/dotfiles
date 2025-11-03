@@ -26,6 +26,9 @@ Install brew apps
 brew bundle --file=~/.config/Brewfile
 ```
 
+Install nvm
+https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
+
 Update chezmoi
 
 ```bash
