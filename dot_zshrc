@@ -128,11 +128,8 @@ ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
 
 
 # ================================
-# Google Cloud SDK
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/kallechen/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/kallechen/google-cloud-sdk/path.zsh.inc'; fi
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/kallechen/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/kallechen/google-cloud-sdk/completion.zsh.inc'; fi
+# Global Python
+source ~/.global-python/bin/activate
 # ================================
 
 
