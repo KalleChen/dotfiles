@@ -29,6 +29,11 @@ brew bundle --file=~/.config/Brewfile
 Install nvm
 https://github.com/nvm-sh/nvm?tab=readme-ov-file#installing-and-updating
 
+Install tpm
+```bash
+git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm
+```
+
 Update chezmoi
 
 ```bash
