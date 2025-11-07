@@ -12,6 +12,7 @@ opt.clipboard = "unnamedplus"
 opt.timeout = true
 opt.timeoutlen = 100
 opt.guicursor = ""
+opt.equalalways = true -- Keep splits evenly sized after any resize event
 
 -- Smart case search: ignore case if all lowercase, respect case if mixed
 opt.ignorecase = true
