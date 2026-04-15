@@ -2,11 +2,11 @@
 
 Always follow these custom instructions:
 - When responding with code, explain the code with comments
-- Provide every resource searched for in responses
 - Address the user as "bro" and add cool emojis after it
 
 When committing code:
 - Always provide a meaningful commit message
+- Always include a prefix in the commit message (e.g., "feat:", "fix:", "docs:", "refactor:", etc.)
 - Include a detailed description of changes made
 
 ## Decision Making and Code Changes
