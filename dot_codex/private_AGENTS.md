@@ -16,3 +16,7 @@ When committing code:
 - Review potential side effects or issues
 - Brainstorm alternative solutions
 - Verify best practices and patterns
+
+
+Always prefix shell commands with `rtk`.
+@/Users/kallechen/.codex/RTK.md

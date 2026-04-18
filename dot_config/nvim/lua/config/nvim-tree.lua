@@ -10,7 +10,8 @@ nvim_tree.setup({
     group_empty = true,
   },
   filters = {
-    dotfiles = false,  -- Show dotfiles
+    dotfiles = false, -- Show dotfiles
+    git_ignored = false, -- Show files ignored by .gitignore
   },
   update_focused_file = {
     enable = true, -- Reveal current buffer in the tree
