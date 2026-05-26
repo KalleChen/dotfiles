@@ -204,6 +204,33 @@ This may include:
 
 Documentation should be concise, accurate, and actionable.
 
+## Persistent Obsidian Codex Memory
+
+Use the user's Obsidian Codex memory vault as persistent cross-project memory.
+
+Memory vault root:
+
+`/Users/kallechen/Documents/Codex`
+
+At the start of important work sessions, quickly review:
+
+`/Users/kallechen/Documents/Codex/AGENTS.md`
+
+When you learn durable background information about people, projects, decisions, follow-up items, recurring workflows, project status, or reusable ideas, update the relevant Markdown files in this Codex memory vault.
+
+The goal is not to preserve chat history. The goal is to serialize useful memory into files the user can read, edit, compare, and reuse.
+
+Do not dump conversation transcripts directly into the vault. Memory updates should be concise, specific, and inspectable.
+
+Before ending an important work session, perform a memory closeout:
+
+* Decide whether anything from the session is worth recording persistently
+* If needed, update the relevant Codex memory files
+* State which memory files were changed
+* Record unresolved follow-up items in `TODO.md` or `agent/open-loops.md`
+
+Do not store secrets, credentials, or sensitive private information.
+
 ## Commit Message Rules
 
 When committing code:
