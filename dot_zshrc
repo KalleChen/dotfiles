@@ -32,6 +32,7 @@ alias lg="lazygit"
 alias la="ls -a"
 alias dot="chezmoi"
 alias vim="nvim"
+alias chat="cd ~/codex-chat && codex"
 
 # Git aliases (oh-my-zsh style)
 alias gaa="git add ."
