@@ -1,5 +1,3 @@
-local lspconfig = require("lspconfig") -- Load LSP configuration module
-
 -- Configure diagnostic display
 vim.diagnostic.config({
   virtual_text = true, -- Show diagnostics as virtual text at end of line
@@ -46,45 +44,30 @@ end
 -- Get completion capabilities from nvim-cmp for LSP
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
--- Configure Lua language server
-lspconfig.lua_ls.setup({
+local default_config = {
   on_attach = on_attach,       -- Use our keymap function
   capabilities = capabilities, -- Enable completion support
-  settings = {                 -- Language server specific settings
-    Lua = {
-      diagnostics = {
-        globals = { "vim" }, -- Tell Lua LSP that 'vim' is a global (avoid warnings)
+}
+
+local servers = {
+  lua_ls = {
+    settings = { -- Language server specific settings
+      Lua = {
+        diagnostics = {
+          globals = { "vim" }, -- Tell Lua LSP that 'vim' is a global (avoid warnings)
+        },
       },
     },
   },
-})
+  ts_ls = {},
+  pyright = {},
+  yamlls = {},
+  bashls = {},
+  sourcekit = {}, -- sourcekit-lsp ships with Xcode.
+}
 
--- Configure TypeScript/JavaScript language server
-lspconfig.ts_ls.setup({
-  on_attach = on_attach,       -- Use our keymap function
-  capabilities = capabilities, -- Enable completion support
-})
-
--- Configure Python language server
-lspconfig.pyright.setup({
-  on_attach = on_attach,       -- Use our keymap function
-  capabilities = capabilities, -- Enable completion support
-})
-
--- Configure YAML language server
-lspconfig.yamlls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
-
--- Configure Bash language server
-lspconfig.bashls.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
-
--- Configure Swift language server (sourcekit-lsp)
-lspconfig.sourcekit.setup({
-  on_attach = on_attach,
-  capabilities = capabilities,
-})
+for server, config in pairs(servers) do
+  -- Neovim 0.11+ uses vim.lsp.config/enable instead of lspconfig.SERVER.setup().
+  vim.lsp.config(server, vim.tbl_deep_extend("force", default_config, config))
+  vim.lsp.enable(server)
+end
