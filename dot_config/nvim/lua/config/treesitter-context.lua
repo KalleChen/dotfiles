@@ -1,4 +1,15 @@
 local context = require('treesitter-context')
+local ok_treesitter, treesitter = pcall(require, "nvim-treesitter")
+
+if vim.fn.has("nvim-0.12") == 1 and (not ok_treesitter or type(treesitter.install) ~= "function") then
+  vim.schedule(function()
+    vim.notify(
+      "treesitter-context disabled until nvim-treesitter is synced to branch main",
+      vim.log.levels.WARN
+    )
+  end)
+  return
+end
 
 context.setup({
   enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)

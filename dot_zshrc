@@ -12,6 +12,10 @@ fi
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=10000
 SAVEHIST=10000
+setopt APPEND_HISTORY
+setopt SHARE_HISTORY
+setopt HIST_IGNORE_DUPS
+setopt HIST_REDUCE_BLANKS
 autoload -Uz compinit && compinit
 autoload -Uz promptinit && promptinit
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -118,6 +122,33 @@ zinit light jeffreytse/zsh-vi-mode
 # ================================
 # vi-mode
 ZVM_VI_INSERT_ESCAPE_BINDKEY=jk
+# ================================
+
+# ================================
+# Prefix history search
+# When a prefix is typed, Up/Down search only matching history entries.
+_zsh_history_prefix_search_bindings() {
+    bindkey "^[[A" history-beginning-search-backward
+    bindkey "^[OA" history-beginning-search-backward
+    bindkey "^[[B" history-beginning-search-forward
+    bindkey "^[OB" history-beginning-search-forward
+
+    bindkey -M viins "^[[A" history-beginning-search-backward
+    bindkey -M viins "^[OA" history-beginning-search-backward
+    bindkey -M viins "^[[B" history-beginning-search-forward
+    bindkey -M viins "^[OB" history-beginning-search-forward
+
+    bindkey -M emacs "^[[A" history-beginning-search-backward
+    bindkey -M emacs "^[OA" history-beginning-search-backward
+    bindkey -M emacs "^[[B" history-beginning-search-forward
+    bindkey -M emacs "^[OB" history-beginning-search-forward
+}
+
+_zsh_history_prefix_search_bindings
+
+function zvm_after_init() {
+    _zsh_history_prefix_search_bindings
+}
 # ================================
 
 
