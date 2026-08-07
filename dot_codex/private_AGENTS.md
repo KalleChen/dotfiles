@@ -89,18 +89,6 @@ When giving review feedback:
 * Suggest improvements with reasoning
 * Avoid nitpicks unless they affect readability or consistency
 
-## Cross-model Code Review
-
-For any code-review workflow, including PR, branch, commit, and diff reviews:
-
-* Perform the normal Codex review
-* Spawn exactly one `claude_reviewer` subagent in parallel
-* Pass it the exact review target, base ref, scope, relevant specification, and whether uncommitted changes are included
-* Wait for its result, validate and deduplicate all findings, then label accepted findings as `Codex`, `Claude`, or `Both`
-* Report an unavailable or failed Claude review explicitly
-
-Apply this workflow only to code reviews unless the user explicitly requests cross-model review for another artifact.
-
 ## Debugging and Problem Solving
 
 When debugging:
