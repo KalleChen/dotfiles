@@ -1,0 +1,164 @@
+{{- /* chezmoi:modify-template */ -}}
+{{- /* Managed preferences reset on apply. Unknown/local fields survive. Changed values reserialize TOML (comments may be lost). Node/browser runtime, hashes, project trust and credentials remain local. Reminder binaries must be installed separately. */ -}}
+{{- $config := .chezmoi.stdin | fromToml -}}
+{{- $before := $config | toToml -}}
+{{- $_ := setValueAtPath (list "model") ("\"gpt-6-astra\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "personality") ("\"pragmatic\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "model_reasoning_effort") ("\"medium\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "approvals_reviewer") ("\"user\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "service_tier") ("\"default\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plan_mode_reasoning_effort") ("\"high\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "approval_policy") ("\"on-request\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "sandbox_mode") ("\"workspace-write\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "features" "js_repl") ("false" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "features" "memories") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "features" "apps") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "features" "chronicle") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "memories" "generate_memories") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "memories" "use_memories") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "memories" "disable_on_external_context") ("false" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "github@openai-curated" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "documents@openai-primary-runtime" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "spreadsheets@openai-primary-runtime" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "presentations@openai-primary-runtime" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "computer-use@openai-bundled" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "codex-security@openai-curated" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "notion@openai-curated" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "gmail@openai-curated" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "pdf@openai-primary-runtime" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "template-creator@openai-primary-runtime" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "chrome@openai-bundled" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "visualize@openai-bundled" "enabled") ("true" | fromJson) $config -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "plugins" "apple-notes@apple-notes-mcp" "enabled") ("true" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "plugins" "apple-notes@apple-notes-mcp" "mcp_servers" "apple-notes" "enabled") ("true" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "plugins" "apple-notes@apple-notes-mcp" "mcp_servers" "apple-notes" "enabled_tools") ("[\"health-check\", \"search-notes\", \"create-note\", \"get-note-content\"]" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "plugins" "apple-notes@apple-notes-mcp" "mcp_servers" "apple-notes" "default_tools_approval_mode") ("\"prompt\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "plugins" "apple-notes@apple-notes-mcp" "mcp_servers" "apple-notes" "startup_timeout_sec") ("30" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "plugins" "apple-notes@apple-notes-mcp" "mcp_servers" "apple-notes" "tool_timeout_sec") ("60" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "plugins" "apple-notes@apple-notes-mcp" "mcp_servers" "apple-notes" "tools" "health-check" "approval_mode") ("\"approve\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "plugins" "apple-notes@apple-notes-mcp" "mcp_servers" "apple-notes" "tools" "search-notes" "approval_mode") ("\"approve\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "plugins" "apple-notes@apple-notes-mcp" "mcp_servers" "apple-notes" "tools" "create-note" "approval_mode") ("\"approve\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "plugins" "apple-notes@apple-notes-mcp" "mcp_servers" "apple-notes" "tools" "get-note-content" "approval_mode") ("\"approve\"" | fromJson) $config -}}
+{{- end -}}
+{{- $_ := setValueAtPath (list "plugins" "browser@openai-bundled" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "mattpocock-skills@claude-plugins-official" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "ponytail@ponytail" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "codex-app-tools@openai-bundled" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "sites@openai-bundled" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "computer-history@openai-bundled" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "slack@openai-curated" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "plugins" "unified-computer-use@openai-bundled" "enabled") ("true" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "tui" "status_line") ("[\"thread-title\", \"model-with-reasoning\", \"current-dir\", \"context-used\", \"five-hour-limit\", \"weekly-limit\", \"context-window-size\", \"used-tokens\"]" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "tui" "pet") ("\"disabled\"" | fromJson) $config -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "conversationDetailMode") ("\"STEPS_COMMANDS\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "ambient-suggestions-enabled") ("true" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "keepRemoteControlAwakeWhilePluggedIn") ("true" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "preventSleepWhileRunning") ("true" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "followUpQueueMode") ("\"queue\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "dock-icon-preference") ("\"codex-system\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "show-context-window-usage") ("true" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "avatar-overlay-mascot-width-px") ("94" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "git-pull-request-merge-method") ("\"squash\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "git-create-pull-request-as-draft") ("false" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "reviewDelivery") ("\"inline\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "open-link-in-target-preference") ("\"in-app-browser\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "worktree-upstream-refresh-mode") ("\"best-effort\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "open-in-target-preferences" "global") ("\"fileManager\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "appearanceDarkChromeTheme" "accent") ("\"#339cff\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "appearanceDarkChromeTheme" "contrast") ("60" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "appearanceDarkChromeTheme" "ink") ("\"#ffffff\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "appearanceDarkChromeTheme" "opaqueWindows") ("false" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "appearanceDarkChromeTheme" "surface") ("\"#181818\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "appearanceDarkChromeTheme" "fonts" "code") ("\"\\\"MesloLGM Nerd Font Mono\\\", Menlo, monospace\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "appearanceDarkChromeTheme" "semanticColors" "diffAdded") ("\"#40c977\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "appearanceDarkChromeTheme" "semanticColors" "diffRemoved") ("\"#fa423e\"" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "desktop" "appearanceDarkChromeTheme" "semanticColors" "skill") ("\"#ad7bf9\"" | fromJson) $config -}}
+{{- end -}}
+{{- $_ := setValueAtPath (list "mcp_servers" "notion" "url") ("\"https://mcp.notion.com/mcp\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "mcp_servers" "notion" "tools" "notion-update-page" "approval_mode") ("\"approve\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "mcp_servers" "openaiDeveloperDocs" "url") ("\"https://developers.openai.com/mcp\"" | fromJson) $config -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "mcp_servers" "apple-reminders" "command") ("\"/Users/kallechen/.nvm/versions/node/v24.13.1/bin/node\"" | replace "/Users/kallechen" .chezmoi.homeDir | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "mcp_servers" "apple-reminders" "args") ("[\"/Users/kallechen/.local/share/codex/mcp-server-apple-events/v1.4.0/bin/run.cjs\"]" | replace "/Users/kallechen" .chezmoi.homeDir | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "mcp_servers" "apple-reminders" "enabled_tools") ("[\"reminders_tasks\", \"reminders_lists\", \"reminders_subtasks\"]" | fromJson) $config -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{- $_ := setValueAtPath (list "mcp_servers" "apple-reminders" "default_tools_approval_mode") ("\"prompt\"" | fromJson) $config -}}
+{{- end -}}
+{{- $_ := setValueAtPath (list "marketplaces" "ponytail" "source") ("\"https://github.com/DietrichGebert/ponytail.git\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "marketplaces" "ponytail" "source_type") ("\"git\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "marketplaces" "apple-notes-mcp" "source") ("\"https://github.com/sweetrb/apple-notes-mcP.git\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "marketplaces" "apple-notes-mcp" "source_type") ("\"git\"" | fromJson) $config -}}
+{{- if eq $before ($config | toToml) -}}
+{{- .chezmoi.stdin -}}
+{{- else -}}
+{{- $config | toToml -}}
+{{- end -}}

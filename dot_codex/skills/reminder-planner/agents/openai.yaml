@@ -1,0 +1,13 @@
+interface:
+  display_name: "Reminder Planner"
+  short_description: "Create, organize, and plan project reminders"
+  default_prompt: "Use $reminder-planner to capture, triage, or plan my project reminders safely."
+
+dependencies:
+  tools:
+    - type: "mcp"
+      value: "apple-reminders"
+      description: "Apple Reminders MCP with Reminder-only tools"
+
+policy:
+  allow_implicit_invocation: true

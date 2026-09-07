@@ -1,0 +1,4 @@
+interface:
+  display_name: "Local Email Preview"
+  short_description: "Preview and verify local application emails with Mailpit"
+  default_prompt: "Use $local-email-preview to send and verify this application email locally."
