@@ -16,8 +16,22 @@
 
 - Keep the current Codex task as the control room. It owns scope, user decisions, final review, verification, and status.
 - Work on one ticket at a time unless the user explicitly requests parallel work.
-- The Astra parent handles small changes and diagnoses complex bugs with unknown causes directly.
-- Delegate one implementation and verification task to `luna_worker` only when requirements are settled, scope is clear, and enough implementation work remains to justify the handoff. The worker uses its configured medium reasoning effort; the parent owns scope and final review.
+- The current agent handles implementation and verification directly by default.
+- Keep `gpt-6.1-sol` with `high` reasoning as the default main implementation
+  and verification agent; honor explicit user model choices.
+- Delegate bounded read-only code exploration or official documentation research
+  to `luna_reader` (`gpt-6-luna`, `high`) when it has a concrete benefit. Handle
+  small lookups directly; Luna exploration does not replace an independent review.
+- Use `astra_advisor` (`gpt-6-astra`, `high`) before major architecture or migration
+  plans, after repeated blockers despite distinct evidence-backed hypotheses,
+  or for important delivery review involving security, tenant isolation, data,
+  compatibility, or large-table performance. Give it a concrete question; routine
+  changes do not need an extra adviser pass.
+- Use at most one helper at a time by default, unless the user or applicable
+  project workflow explicitly requests parallel work. The main agent owns decisions
+  and final synthesis. Preserve project-required review passes and explicitly
+  requested Claude cross-checks; reuse relevant evidence instead of adding a
+  duplicate adviser pass for the same question.
 - Give the worker the necessary file paths, findings, constraints, file ownership, and acceptance criteria. Prefer `fork_turns="none"` with a self-contained brief when sufficient; include conversation history only when needed for correctness.
 - Keep one write-capable agent per workspace. Tell the worker it shares the workspace and must preserve others' edits. Delegate read-only work only when it offers a concrete benefit.
 - Review the worker's diff and verification evidence. Repeat exploration or tests only for missing evidence, failures, new changes, or unresolved risks; complete required project checks.

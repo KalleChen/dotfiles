@@ -2,9 +2,9 @@
 {{- /* Managed preferences reset on apply. Unknown/local fields survive. Changed values reserialize TOML (comments may be lost). Node/browser runtime, hashes, project trust and credentials remain local. Reminder binaries must be installed separately. */ -}}
 {{- $config := .chezmoi.stdin | fromToml -}}
 {{- $before := $config | toToml -}}
-{{- $_ := setValueAtPath (list "model") ("\"gpt-6-astra\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "model") ("\"gpt-6.1-sol\"" | fromJson) $config -}}
 {{- $_ := setValueAtPath (list "personality") ("\"pragmatic\"" | fromJson) $config -}}
-{{- $_ := setValueAtPath (list "model_reasoning_effort") ("\"medium\"" | fromJson) $config -}}
+{{- $_ := setValueAtPath (list "model_reasoning_effort") ("\"high\"" | fromJson) $config -}}
 {{- $_ := setValueAtPath (list "approvals_reviewer") ("\"user\"" | fromJson) $config -}}
 {{- $_ := setValueAtPath (list "service_tier") ("\"default\"" | fromJson) $config -}}
 {{- $_ := setValueAtPath (list "plan_mode_reasoning_effort") ("\"high\"" | fromJson) $config -}}
